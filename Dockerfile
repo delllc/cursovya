@@ -1,12 +1,8 @@
-# Use an official lightweight PHP runtime as a parent image
-FROM php:8.2-fpm-alpine
+# Use an official lightweight PHP runtime as a parent image with a specific Alpine version
+FROM php:8.1-fpm-alpine3.18
 
 # Set the working directory in the container
 WORKDIR /var/www/html
-
-# Add Alpine Edge repository for php-dev
-RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories \
-    && echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
 
 # Install system dependencies and PHP extensions
 RUN apk add --no-cache \
