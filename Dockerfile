@@ -1,10 +1,7 @@
-# Use an official lightweight PHP runtime as a parent image
+# Базовый образ PHP с Alpine Linux
 FROM php:8.2-fpm-alpine
 
-# Set the working directory in the container
-WORKDIR /var/www/html
-
-# Install minimal dependencies for PHP extensions
+# Установка зависимостей
 RUN apk add --no-cache \
     curl \
     git \
@@ -12,29 +9,31 @@ RUN apk add --no-cache \
     npm \
     postgresql-dev \
     build-base \
-    php8-pecl-apcu-dev \
     && docker-php-ext-install pdo_pgsql mbstring tokenizer xml ctype json
 
-# Install Composer
+# Установка Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Copy application code to the container
+# Создание рабочей директории
+WORKDIR /var/www/html
+
+# Копирование файлов проекта
 COPY . .
 
-# Set permissions
+# Установка прав доступа
 RUN chmod -R 775 storage bootstrap/cache
 
-# Install PHP dependencies
+# Установка PHP-зависимостей
 RUN composer install --optimize-autoloader --no-dev
 
-# Install frontend dependencies
+# Установка фронтенд-зависимостей
 RUN npm install
 
-# Build frontend
+# Сборка фронтенда
 RUN npm run build
 
-# Expose port 80
+# Открытие порта
 EXPOSE 80
 
-# Start the web server
-CMD ["php", "-S", "0.0.0.0:80"]
+# Запуск сервера
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=80"]
