@@ -1,10 +1,10 @@
-# Use an official lightweight PHP runtime as a parent image with a specific Alpine version
-FROM php:8.1-fpm-alpine3.18
+# Use an official lightweight PHP runtime as a parent image
+FROM php:8.2-fpm-alpine
 
 # Set the working directory in the container
 WORKDIR /var/www/html
 
-# Install system dependencies and PHP extensions
+# Install minimal dependencies for PHP extensions
 RUN apk add --no-cache \
     curl \
     git \
@@ -12,7 +12,7 @@ RUN apk add --no-cache \
     npm \
     postgresql-dev \
     build-base \
-    php-dev \
+    php8-pecl-apcu-dev \
     && docker-php-ext-install pdo_pgsql mbstring tokenizer xml ctype json
 
 # Install Composer
