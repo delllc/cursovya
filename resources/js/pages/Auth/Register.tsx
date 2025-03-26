@@ -1,12 +1,12 @@
-import InputError from '@/Components/InputError';
-import InputLabel from '@/Components/InputLabel';
-import PrimaryButton from '@/Components/PrimaryButton';
-import TextInput from '@/Components/TextInput';
+import InputError from '@/components/InputError';
+import InputLabel from '@/components/InputLabel';
+import PrimaryButton from '@/components/PrimaryButton';
+import TextInput from '@/components/TextInput';
+import { MainLayout } from '@/layouts/news/layout';
 import { Head, Link, useForm } from '@inertiajs/react';
 import { FormEventHandler } from 'react';
-import { MainLayout } from '@/layouts/news/layout';
 
-export default function Register({auth}) {
+export default function Register({ auth }) {
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '',
         email: '',
@@ -23,8 +23,8 @@ export default function Register({auth}) {
     };
 
     return (
-        <MainLayout auth={auth} className="w-[100%] flex items-center justify-center h-[100%]">
-            <Head title='Регистрация'/>
+        <MainLayout auth={auth} className="flex h-[100%] w-[100%] items-center justify-center">
+            <Head title="Регистрация" />
             <div className="mt-6 w-full overflow-hidden bg-white px-6 py-4 shadow-md sm:max-w-md sm:rounded-lg">
                 <form onSubmit={submit}>
                     <div>
@@ -79,10 +79,7 @@ export default function Register({auth}) {
                     </div>
 
                     <div className="mt-4">
-                        <InputLabel
-                            htmlFor="password_confirmation"
-                            value="Подтвердите пароль"
-                        />
+                        <InputLabel htmlFor="password_confirmation" value="Подтвердите пароль" />
 
                         <TextInput
                             id="password_confirmation"
@@ -91,22 +88,17 @@ export default function Register({auth}) {
                             value={data.password_confirmation}
                             className="mt-1 block w-full"
                             autoComplete="new-password"
-                            onChange={(e) =>
-                                setData('password_confirmation', e.target.value)
-                            }
+                            onChange={(e) => setData('password_confirmation', e.target.value)}
                             required
                         />
 
-                        <InputError
-                            message={errors.password_confirmation}
-                            className="mt-2"
-                        />
+                        <InputError message={errors.password_confirmation} className="mt-2" />
                     </div>
 
                     <div className="mt-4 flex items-center justify-end">
                         <Link
                             href={route('login')}
-                            className="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                            className="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-none"
                         >
                             Уже есть аккаунт?
                         </Link>
@@ -118,5 +110,5 @@ export default function Register({auth}) {
                 </form>
             </div>
         </MainLayout>
-);
+    );
 }
