@@ -1,7 +1,7 @@
-import InputError from '@/Components/InputError';
-import InputLabel from '@/Components/InputLabel';
-import PrimaryButton from '@/Components/PrimaryButton';
-import TextInput from '@/Components/TextInput';
+import InputError from '@/components/InputError';
+import InputLabel from '@/components/InputLabel';
+import PrimaryButton from '@/components/PrimaryButton';
+import TextInput from '@/components/TextInput';
 import { Transition } from '@headlessui/react';
 import { Link, useForm, usePage } from '@inertiajs/react';
 import { FormEventHandler } from 'react';
@@ -17,11 +17,10 @@ export default function UpdateProfileInformation({
 }) {
     const user = usePage().props.auth.user;
 
-    const { data, setData, patch, errors, processing, recentlySuccessful } =
-        useForm({
-            name: user.name,
-            email: user.email,
-        });
+    const { data, setData, patch, errors, processing, recentlySuccessful } = useForm({
+        name: user.name,
+        email: user.email,
+    });
 
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
@@ -32,13 +31,9 @@ export default function UpdateProfileInformation({
     return (
         <section className={className}>
             <header>
-                <h2 className="text-lg font-medium text-gray-900">
-                    Информация о профиле
-                </h2>
+                <h2 className="text-lg font-medium text-gray-900">Информация о профиле</h2>
 
-                <p className="mt-1 text-sm text-gray-600">
-                    Обновите информацию профиля вашей учетной записи и адрес электронной почты.
-                </p>
+                <p className="mt-1 text-sm text-gray-600">Обновите информацию профиля вашей учетной записи и адрес электронной почты.</p>
             </header>
 
             <form onSubmit={submit} className="mt-6 space-y-6">
@@ -82,16 +77,14 @@ export default function UpdateProfileInformation({
                                 href={route('verification.send')}
                                 method="post"
                                 as="button"
-                                className="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                                className="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-none"
                             >
                                 Нажмите сюда для повторной отправки письма
                             </Link>
                         </p>
 
                         {status === 'verification-link-sent' && (
-                            <div className="mt-2 text-sm font-medium text-green-600">
-                               Новый адрес подтверждения отправлен на почту.
-                            </div>
+                            <div className="mt-2 text-sm font-medium text-green-600">Новый адрес подтверждения отправлен на почту.</div>
                         )}
                     </div>
                 )}
@@ -106,9 +99,7 @@ export default function UpdateProfileInformation({
                         leave="transition ease-in-out"
                         leaveTo="opacity-0"
                     >
-                        <p className="text-sm text-gray-600">
-                            Сохранено.
-                        </p>
+                        <p className="text-sm text-gray-600">Сохранено.</p>
                     </Transition>
                 </div>
             </form>
