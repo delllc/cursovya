@@ -4,6 +4,10 @@ FROM php:8.2-fpm-alpine
 # Set the working directory in the container
 WORKDIR /var/www/html
 
+# Add Alpine Edge repository for php-dev
+RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories \
+    && echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
+
 # Install system dependencies and PHP extensions
 RUN apk add --no-cache \
     curl \
