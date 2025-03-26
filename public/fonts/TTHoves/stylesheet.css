@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'TT Hoves';
+    src: url('TTHoves-Black.eot');
+    src: local('TT Hoves Black'), local('TTHoves-Black'),
+        url('TTHoves-Black.eot?#iefix') format('embedded-opentype'),
+        url('TTHoves-Black.woff2') format('woff2'),
+        url('TTHoves-Black.woff') format('woff'),
+        url('TTHoves-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TT Hoves';
+    src: url('TTHoves-Regular.eot');
+    src: local('TT Hoves Regular'), local('TTHoves-Regular'),
+        url('TTHoves-Regular.eot?#iefix') format('embedded-opentype'),
+        url('TTHoves-Regular.woff2') format('woff2'),
+        url('TTHoves-Regular.woff') format('woff'),
+        url('TTHoves-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TT Hoves';
+    src: url('TTHoves-Medium.eot');
+    src: local('TT Hoves Medium'), local('TTHoves-Medium'),
+        url('TTHoves-Medium.eot?#iefix') format('embedded-opentype'),
+        url('TTHoves-Medium.woff2') format('woff2'),
+        url('TTHoves-Medium.woff') format('woff'),
+        url('TTHoves-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+

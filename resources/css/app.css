@@ -1,0 +1,62 @@
+@import 'tailwindcss';
+@config "../../tailwind.config.js";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+:root {
+    --background:  #F5F6F8;
+    --foreground: oklch(0.145 0 0);
+    --primary-color: #DC5356;
+    --primary-gradient: linear-gradient(92.45deg, #DC5356 0%, #C83A3D 70.73%, #C03032 100%);
+
+
+}
+
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+}
+
+.container {
+    width: 1390px;
+    margin: 0 auto;
+}
+
+.header {
+    background: var(--primary-gradient);
+    height: 97px;
+    color: #ffffff;
+}
+
+.list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    height: 97px;
+}
+
+.logo {
+    font-size: 18px !important;
+    line-height: 17px;
+    width: 120px;
+    text-align: left;
+}
+
+.list__item {
+    font-size: 14px;
+}
+
+
+.gradient-linear {
+    background: linear-gradient(90deg, #D84E50 0%, rgba(214, 135, 136, 0.47) 100%);
+    border-radius: 0px 10px 10px 0px;
+    color: #ffffff;
+
+}
